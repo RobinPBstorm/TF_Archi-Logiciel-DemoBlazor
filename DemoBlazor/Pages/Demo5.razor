@@ -1,0 +1,31 @@
+﻿@page "/demo5"
+
+<h3>Les formulaires</h3>
+
+@* OnSubmit="..." existe aussi *@
+<EditForm Model="ProduitModel" OnInvalidSubmit="SignalerLesErreursFormulaires" OnValidSubmit="EnvoyerFormulaire">
+    <DataAnnotationsValidator/>
+
+    <ValidationSummary/>
+
+    <label for="Nom">Nom</label>
+    <InputText id="Nom" 
+                @bind-Value="ProduitModel.Nom"
+                class="form-control"></InputText>
+    <ValidationMessage For="@(() => ProduitModel.Nom)"/>
+
+    <label for="Prix">Prix</label>
+    <InputNumber id="Prx"
+               @bind-Value="ProduitModel.Prix"
+                 class="form-control"></InputNumber>
+    <ValidationMessage For="@(() => ProduitModel.Prix)" />
+
+    <label for="Couleur">Couleur</label>
+    <InputText id="Couleur"
+                type="color"
+               @bind-Value="ProduitModel.Couleur"
+               class="form-control"></InputText>
+    <ValidationMessage For="@(() => ProduitModel.Couleur)" />
+      
+    <button class="btn btn-success">Valider</button>
+</EditForm>

@@ -1,0 +1,9 @@
+﻿<h4>Jouons @PseudoParticipant</h4>
+
+
+<h5>@Questions[IndexQuestion].Intitule</h5>
+@foreach(string reponsePossible in Questions[IndexQuestion].Reponses)
+{
+	<button @onclick=@(() => Repondre(@reponsePossible))>@reponsePossible</button>
+}
+

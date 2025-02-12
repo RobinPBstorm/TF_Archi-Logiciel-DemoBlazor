@@ -1,0 +1,29 @@
+﻿@page "/quizz"
+
+<h3>GrandQuizz</h3>
+
+@if (string.IsNullOrWhiteSpace(@Pseudo))
+{
+	<h4>Bienvenue dans le grand quizz!</h4>
+	<label for="pseudo">Sous quel nom allez vous participer ?</label>
+	<input id="pseudo" type="text" @bind-value=@Pseudo/>
+}
+else if (!QuizzTermine)
+{
+	<QuestionComponent
+		PseudoParticipant=@Pseudo
+		EnvoiReponse="ReceptionReponse"
+		FinDesQuestion="FinDuQuizz">
+	</QuestionComponent>
+}
+else
+{
+	<h4>Merci d'avoir participé @Pseudo</h4>
+	<h5>Vos réponses:</h5>
+	<ul>
+	@foreach(string reponse in ReponsesRecues)
+	{
+		<li>@reponse</li>
+	}
+	</ul>
+}

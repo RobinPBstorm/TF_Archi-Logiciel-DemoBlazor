@@ -1,0 +1,16 @@
+﻿@page "/demo4"
+
+<h3>Virtualisation</h3>
+
+@* <ul>
+@foreach(int nombre in MesNombres)
+{
+	<li>@nombre</li>
+}
+</ul> *@
+
+<ul>
+	<Virtualize Items="MesNombres" Context="nombre">
+		<li>@nombre</li>
+	</Virtualize>
+</ul>
