@@ -1,0 +1,10 @@
+﻿@page "/demo3"
+
+<h3>Le cycle de vie</h3>
+
+<button @onclick=@(() => Valeur +=5)>+ 5</button>
+
+@if(Valeur >= 10 && Valeur < 15)
+{
+	<p>Coucou</p>
+}

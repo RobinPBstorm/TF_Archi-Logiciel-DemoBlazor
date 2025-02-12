@@ -1,0 +1,14 @@
+﻿@page "/demo1"
+
+<h3>Les Bindings</h3>
+
+@* Binding en lecture *@
+<p>@Valeur</p>
+
+@* Binding lecture et écriture *@
+<input type="number" @bind-value=@Valeur />
+
+@* Binding event*@
+<button @onclick="Augmenter">Augmenter</button>
+<button @onclick="Diminuer">Diminuer</button>
+<p @onmouseenter="Augmenter" @onmouseleave="Augmenter">A survoler</p>
