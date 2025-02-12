@@ -1,0 +1,51 @@
+﻿@page "/contact"
+
+<h3>FormulaireContact</h3>
+
+@if (!string.IsNullOrWhiteSpace(RetourValidation))
+{
+	<p class=@(FormulaireInvalid? "text-danger": "text-success")>@RetourValidation</p>
+}
+
+@if (FormulaireInvalid)
+{
+	<EditForm Model="ContactModel" 
+			OnInvalidSubmit="SignalerInvalideFormulaire"
+			OnValidSubmit="EnvoyerFormulaire">
+		<DataAnnotationsValidator/>
+
+		<label for="Nom">Nom</label>
+		<InputText id="Nom"
+					@bind-Value="ContactModel.Nom"
+					class="form-control"/>
+		<ValidationMessage For="@(() => ContactModel.Nom)"/>
+
+		<label for="Email">Email</label>
+		<InputText id="Email"
+					@bind-Value="ContactModel.Email"
+					class="form-control" />
+		<ValidationMessage For="@(() => ContactModel.Email)" />
+
+		<label for="Telephone">Telephone</label>
+		<InputText id="Telephone"
+					@bind-Value="ContactModel.Telephone"
+					class="form-control" />
+		<ValidationMessage For="@(() => ContactModel.Telephone)" />
+
+		<label for="Message">Message</label>
+		<InputTextArea id="Message"
+					@bind-Value="ContactModel.Message"
+					class="form-control" />
+		<ValidationMessage For="@(() => ContactModel.Message)" />
+
+		<label for="Couleur">Couleur préférée</label>
+		<InputText id="Couleur"
+					type="color"
+					@bind-Value="ContactModel.CouleurPreferee"
+					class="form-control" />
+		<ValidationMessage For="@(() => ContactModel.CouleurPreferee)" />
+
+		<button class="btn btn-success">Valider</button>
+	</EditForm>
+}
+

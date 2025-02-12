@@ -11,5 +11,10 @@ namespace DemoBlazor.Pages
         {
             //instructions
         }
+
+        public void EnvoyerFormulaire()
+        {
+
+        }
     }
 }
